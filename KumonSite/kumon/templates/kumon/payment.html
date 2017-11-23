@@ -99,7 +99,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="/kumon/home"><i class="fa fa-home fa-fw"></i> home</a>
+                            <a href="/kumon/home"><i class="fa fa-home fa-fw"></i> Home</a>
                         </li>
                         
                         <li>
@@ -117,8 +117,8 @@
                          <li>
                             <a href="/kumon/salaries"><i class="fa fa-database fa-fw"></i> Salary</a>
                         </li>
-                          <li>
-                            <a href="/kumon/payments"><i class="fa fa-money fa-fw"></i> Payments</a>
+                        <li style = "background-color:lightgray;">
+                            <a href="/kumon/payments"><i class="fa fa-money fa-fw"></i> Tuition</a>
                         </li>
                         <li>
                             <a href="/kumon/expenses"><i class="fa fa-envelope-o fa-fw"></i> Expenses</a>
@@ -133,81 +133,61 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-<body>
-  <section>
-  <h1>Payment</h1>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr>
-          <th>Student Name</th> 
-		  <th></th> 
-          <th>Tuition</th>
-          <th>Payment</th>
-          <th>Fully Paid</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-  <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
-        <tr>
-          <td>Student 1</td>
-		  <td></td>
-		  <td></td>
-          <td>6000 </td>
-          <td><input type="number" name="number" ></td>
-		  <td></td>
-          <td><input type="checkbox" name="" value="Installment"></td>
-        </tr>
-        <tr>
-          <td>Student 2</td>
-		  <td></td>
-		  <td></td>
-          <td>7000 </td>
-          <td><input type="number" name="number" ></td>
-		  <td></td>
-          <td><input type="checkbox" name="" value="Installment"></td>
-        </tr>
-		
-		<tr>
-          <td>Student 2</td>
-		  <td></td>
-		  <td></td>
-          <td>7000 </td>
-          <td><input type="number" name="number" ></td>
-		  <td></td>
-          <td><input type="checkbox" name="" value="Installment"></td>
-        </tr>
-		
-		<tr>
-          <td>Student 2</td>
-		  <td></td>
-		  <td></td>
-          <td>7000 </td>
-          <td><input type="number" name="number" ></td>
-		  <td></td>
-          <td><input type="checkbox" name="" value="Installment"></td>
-        </tr>
-		
-		<tr>
-          <td>Student 2</td>
-		  <td></td>
-		  <td></td>
-          <td>7000 </td>
-          <td><input type="number" name="number" ></td>
-		  <td></td>
-          <td><input type="checkbox" name="" value="Installment"></td>
-        </tr>
-		
-		
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-
-</body>
-</html>
+        <body>
+                <section>
+                    
+                <div class="tbl-header" style = "margin-top:3%">
+                    <Label>Search: </Label>
+                    <input type = "search" placeholder = "Search...">
+                    
+                    <Label>Sort by: </Label>
+                    <select> 
+                      <option> Fully Paid </option>
+                      <option> Not Yet Paid </option>
+                      <option> Partially Paid </option>
+                    </select>
+                    
+                    <Label>Tuition: </Label>
+                    <input type = "search" placeholder = "2500">
+                    <button style = "background-color:#008CBA;
+                          border: none;
+                          color: white;
+                          padding: 5px 25px">OK</button>
+                  <table class = "table table-bordered">
+                      <tr>
+                        <th><strong> Student Name </strong></th> 
+                        <th><strong> Tuition </strong></th>
+                        <th><strong> Payment </strong></th>
+                      </tr>
+              
+                    <tbody>
+                      <tr>
+                        <td>Student 1</td>
+                        <td>6000 </td>
+                        <td><button class = "btn dec" type = "button"> - </button><input type="number" name="number" ><button class = "btn add" type = "button"> + </button> </td>
+                        
+                        
+                      </tr>
+                      <tr>
+                        <td>Student 2</td>
+                        <td>7000 </td>
+                        <td><button class = "btn dec" type = "button"> - </button><input type="number" name="number" ><button class = "btn add" type = "button"> + </button> </td>
+                      </tr>
+                      
+                      <tr>
+                        <td>Student 3</td>
+                        <td>7000 </td>
+                        <td><button class = "btn dec" type = "button"> - </button> <input type="number" name="number" ><button class = "btn add" type = "button"> + </button></td>
+                      </tr>
+              
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+              
+              </body>
+              </div>
+              </body>
+              </html>
+              

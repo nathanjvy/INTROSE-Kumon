@@ -3,11 +3,47 @@
 <html lang="en">
 
 <style>
-    .table-responsive{
-        width: 100%;
-        border: 5px solid #dddd;
-    }
-    </style>
+        #student-table{
+            width: 100%;
+            border: 5px solid #dddd;
+        }
+        #schedule-table{
+            width:90%;
+            display:block;
+            text-align: center;
+            height:350px;
+            overflow-y: scroll;
+        }
+        .update-btn{
+            position:absolute;
+            right:150px;
+            background-color:#008CBA;
+            border:none;
+            color:white;
+            padding: 5px 15px;
+            transition-delay: 0.2s;
+        }
+            .update-btn:hover{
+                background-color:white;
+                color:black;
+                border:2px solid #008CBA;
+            }
+        .confirm-btn{
+            position:absolute;
+            right:150px;
+            background-color:#008CBA;
+            border:none;
+            color:white;
+            padding: 5px 15px;
+            transition-delay: 0.2s;
+        }
+        .confirm-btn:hover{
+                background-color:white;
+                color:black;
+                border:2px solid #008CBA;
+            }
+        </style>
+    
 <head>
 
     <meta charset="utf-8">
@@ -107,7 +143,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="/kumon/home"><i class="fa fa-home fa-fw"></i> home</a>
+                            <a href="/kumon/home"><i class="fa fa-home fa-fw"></i> Home</a>
                         </li>
                         
                         <li>
@@ -119,7 +155,7 @@
                         <li>
                             <a href="/kumon/attendance"><i class="fa fa-check-square fa-fw"></i> Attendance</a>
                         </li>
-                          <li>
+                        <li style = "background-color:lightgray;">
                             <a href="/kumon/schedule"><i class="fa fa-calendar fa-fw"></i> Schedule</a>
                         </li>
                          <li>
@@ -141,76 +177,372 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-         <div id="page-wrapper">
-        <div style="margin-top: 7%">
-        <table class="table table-bordered" style="text-align: center">
-  <thead>
-    <tr>
-      <th style="text-align: center">Time </th>
-      <th style="text-align: center">Monday</th>
-      <th style="text-align: center">Tuesday</th>
-      <th style="text-align: center">Wednesday</th>
-      <th style="text-align: center">Thursday</th>
-      <th style="text-align: center">Friday</th>
-      <th style="text-align: center">Saturday</th>
-      <th style="text-align: center">Sunday</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr >
-      <th scope="column" rowspan="3" style="text-align: center">4:00pm-5:00pm</th>
-      <td>teacher a</td>
-      <td>teacher d </td>
-      <th rowspan="6" style="text-align:center">Day off</th>
-      <td>teacher a</td>
-      <td>teacher c</td>
-      <td>teacher d </td>
-      <th rowspan="6" style="text-align:center">Day off</th>
-    </tr>
-    <tr>
-      <td >teacher b</td>
-      <td>teacher a</td>
-      <td>teacher d </td>
-      <td>teacher a</td>
-      <td>teacher c</td>
-    </tr>
-     <tr>
-      <td >teacher c</td>
-      <td>teacher c</td>
-      <td>teacher b </td>
-      <td>teacher d</td>
-      <td>teacher a</td>
-    </tr>
-     <tr>
-      <th scope="column" rowspan="3" style="text-align: center">5:00pm-6:00pm</th>
-      <td>teacher a</td>
-      <td>teacher d </td>
-      <td>teacher a</td>
-      <td>teacher c</td>
-      <td>teacher d </td>  
-    </tr>
-    <tr>
-      <td >teacher b</td>
-      <td>teacher a</td>
-      <td>teacher d </td>
-      <td>teacher a</td>
-      <td>teacher c</td>
-    </tr>
-     <tr>
-      <td >teacher c</td>
-      <td>teacher c</td>
-      <td>teacher b </td>
-      <td>teacher d</td>
-      <td>teacher a</td>
-    </tr>
+
+        <div id="page-wrapper" style="margin-top: 3%">
+                <Label class = "search_lbl"> Search: </Label>
+                    <input type = "search" placeholder = "Search for..." class = "sched_search">
+                
+                <Label class = "sort_lbl"> Sort by: </Label>
+                 <select class = "studentlist">
+                    <option> Full Name </option>
+                    <option> Nickname </option>
+                    <option> Math Level </option>
+                    <option> Reading Level </option>
+                    <option> Math ASHR </option>
+                    <option> Reading ASHR </option>
+                    
+                </select>
+                
+                <select id = "teacherlist" style = "position: absolute; right: 253px;">
+                    <option>Teacher 1 </option>
+                    <option>Teacher 2 </option>
+                    <option>Teacher 3 </option>
+                    <option>Teacher 4 </option>
+                    <option>Teacher 5 </option>
+                    <option>Teacher 6 </option>
+                </select>
+                
+                <select id = "daylist" style = "position: absolute; right: 165px;">
+                    <option>  Monday </option>
+                    <option> Tuesday </option>
+                    <option> Thursday </option>
+                    <option> Friday </option>
+                    <option> Saturday </option>
+                </select>
+                
+                <select id = "timelist" style = "position: absolute; right: 30px;">
+                    <option> 8:00 - 9:00 AM </option>
+                    <option> 9:00 - 10:00 AM </option>
+                    <option> 10:00 - 11:00 AM </option>
+                    <option> 11:00 - 12:00 PM </option>
+                    <option> 12:00 - 1:00 PM </option>
+                    <option> 1:00 - 2:00 PM </option>
+                    <option> 2:00 - 3:00 PM </option>
+                    <option> 4:00 - 5:00 PM </option>
+                    <option> 5:00 - 6:00 PM </option>
+                </select> 
+                
+            <table class="table table-bordered" id = "student-table">
+                <tbody> 
+                <tr>
+                    <th id = "t1">Full Name</th>
+                    <th id = "t2">Nickname</th>
+                    <th id = "t3">Kumon Level (Math)</th>
+                    <th id = "t4">Kumon Level (Reading)</th>
+                    <th id = "t5">ASHR (Math)</th>
+                    <th id = "t6">ASHR (Reading)</th>
+                    <th> </th>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td> <input type = "checkbox"></td>
+                    
+                </tr>
+                </tbody>
+            </table>
+            <button class = "update-btn"> Update </button>
+                
+            <table class="table table-bordered" id = "schedule-table">
+                <thead>
+                    <tr>
+                      <th style="text-align: center">Time </th>
+                      <th style="text-align: center">Monday</th>
+                      <th style="text-align: center">Tuesday</th>
+                      <th style="text-align: center">Wednesday</th>
+                      <th style="text-align: center">Thursday</th>
+                      <th style="text-align: center">Friday</th>
+                      <th style="text-align: center">Saturday</th>
+                      <th style="text-align: center">Sunday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">8:00am-9:00am</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">8:00am-9:00am</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">9:00am-10:00am</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">10:00am-11:00am</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">11:00am-12:00pm</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">12:00pm-1:00pm</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">1:00pm-2:00pm</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">2:00pm-3:00pm</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">3:00pm-4:00pm</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">4:00pm-5:00pm</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
+                    
+                    <tr>
+                      <th scope="column" rowspan="3" style="text-align: center">5:00pm-6:00pm</th>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                      <td>teacher d </td>
+                      <th rowspan="3" style="text-align:center">Day off</th>
+                    </tr>
+                    <tr>
+                      <td >teacher b</td>
+                      <td>teacher a</td>
+                      <td>teacher d </td>
+                      <td>teacher a</td>
+                      <td>teacher c</td>
+                    </tr>
+                     <tr>
+                      <td >teacher c</td>
+                      <td>teacher c</td>
+                      <td>teacher b </td>
+                      <td>teacher d</td>
+                      <td>teacher a</td>
+                    </tr>
     
-  </tbody>
-</table>
-             </div>
+                </tbody>
+            </table>
+            <button class = "confirm-btn"> Confirm </button>  
+            </div>
         </div>
-    </div>
-    </body>
-</html>
+        </body>
+    </html>
              
              
 
