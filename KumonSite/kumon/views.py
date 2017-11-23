@@ -9,9 +9,9 @@ from django.urls import reverse
 
 # Create your views here.
 
-from kumon.forms import LoginForm,StudentForm
+from kumon.forms import LoginForm, StudentForm, TeacherForm
 
-from .models import User, Student
+from .models import User, Student, Teacher
 
 def login(request):
     form = LoginForm(request.POST)
@@ -53,7 +53,7 @@ def studentProfile(request, student_id):
     try:
         student = Student.objects.get(pk=student_id)
     except (KeyError, Student.DoesNotExist):
-        raise Http404("User does not exist")
+        raise Http404("Student does not exist")
 
 
     context = {
@@ -62,10 +62,28 @@ def studentProfile(request, student_id):
     }
     return render(request,'kumon/student-profile.html',context)
 
-def teacherPage(request):
-    context = {}
+def addStudent(request):
+    form = StudentForm(request.POST or None, request.FILES or None)
+    all_students = Student.objects.all()
 
+    if form.is_valid():
+        student = form.save(commit=False)
+        student.save()
+        return render(request, 'kumon/students.html', {'all_students':all_students})
+
+    return render(request, 'kumon/add-student.html', {'form':form})
+
+def teacherPage(request):
+    all_teachers = Teacher.objects.all()
+    context = {
+        'all_teachers':all_teachers,
+    }
+    
     return render(request,'kumon/teachers.html',context)
+
+def teacherProfile(request, teacher_id):
+    all_teachers = Teachers.objects.all()
+    
 
 def attendancePage(request):
     context = {}
