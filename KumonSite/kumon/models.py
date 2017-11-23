@@ -46,6 +46,22 @@ class Student(models.Model):
 	guardian_num = models.CharField(max_length=30) #Phone / Tel
 	guardian_email = models.EmailField(max_length=50,blank=True)
 
+        #teacher/s will be found in schedule
+	schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
+
+	#Payment Status
+	tuition_fee = models.CharField(max_length=50)
+	status_choices = (
+                ('Paid','paid'),
+                ('Unpaid','unpaid')
+        )
+	
+	tuition_status = models.CharField(
+                max_length=10,
+                choices = status_choices,
+                default = 'Unpaid'
+        )
+                
 	def __str__(self):
 		return self.name
 
@@ -54,6 +70,7 @@ class Teacher(models.Model):
 	phone_num = models.CharField(max_length=15)
 	tel_num = models.CharField(max_length=15)
 	email = models.EmailField(max_length=50)
+	t_picture = models.ImageField(blank=True)
 	
 	def __str__(self):
 		return self.name
@@ -70,7 +87,7 @@ class Schedule(models.Model):
 	)
 	
 	teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-	student = models.ForeignKey(Student, on_delete=models.CASCADE)
+	#student = models.ForeignKey(Student, on_delete=models.CASCADE)
 
 	time_start = models.TimeField()
 	time_end = models.TimeField()
