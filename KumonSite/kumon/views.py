@@ -58,6 +58,7 @@ def studentProfile(request, student_id):
 
     context = {
         'all_students':all_students,
+        'student':student,
     }
     return render(request,'kumon/student-profile.html',context)
 
