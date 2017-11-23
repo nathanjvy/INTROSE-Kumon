@@ -14,4 +14,6 @@ urlpatterns = [
     url(r'^payments/$', views.paymentPage, name='payments'),   
     url(r'^expenses/$', views.expensesPage, name='expenses'),
     url(r'^inventory/$', views.inventoryPage, name='inventory'),  
+    url(r'^salaries_format/$', views.salaryFormatPage, name='salary_format'), 
+        url(r'^teacher_salary/$', views.teacherSalaryPage, name='teacher_salary'), 
 ]

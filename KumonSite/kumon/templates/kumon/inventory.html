@@ -1,7 +1,40 @@
 <!DOCTYPE html>
 {%load staticfiles%}
 <html lang="en">
-
+        <style>
+                #Addbtn{
+                    background-color:#008CBA;
+                    border: none;
+                    color: white;
+                    padding: 5px 25px;
+                    transition-duration: 0.2s;
+                    position: absolute;
+                    right:110px;
+                    top:-5px;
+                    
+                }
+                #Addbtn:hover{
+                    background-color:white;
+                    color:black;
+                    border:2px solid #008CBA;
+                }
+                #Rembtn{
+                    background-color:#008CBA;
+                    border: none;
+                    color: white;
+                    padding: 5px 25px;
+                    transition-duration: 0.2s;
+                    position: absolute;
+                    right:0px;
+                    top:-5px;
+                }
+                #Rembtn:hover{
+                    background-color:white;
+                    color:black;
+                    border:2px solid #008CBA;
+                }
+            </style>
+        
 <head>
 
     <meta charset="utf-8">
@@ -123,7 +156,7 @@
                         <li>
                             <a href="/kumon/expenses"><i class="fa fa-envelope-o fa-fw"></i> Expenses</a>
                         </li>
-                        <li>
+                        <li style = "background-color:lightgray;">
                             <a href="/kumon/inventory"><i class="fa fa-cube fa-fw"></i> Inventory</a>
                         </li>
                     </ul>
@@ -133,53 +166,55 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-    <div style="position:absolute; left:270px; top:70px;">    
-    <label>SEARCH: </label>
-    <input type="search" placeholder="Search in the inventory" class="item_search">
-    <div class="table-responsive">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ITEMS </th>
-                <th> </th>
-                <th>STOCK </th>
-                <th> </th>
-            </tr>
-        </thead>
-        <tbody class="items_table">
-            <tr>
-                <td>Notebooks </td>
-                <td><button class = "btn dec" type = "button"> - </button> 
-                    <input type = "text" name = "item1" value = "0" /> 
-                    <button class = "btn add" type = "button"> + </button> 
-                </td>
-                <td><input type = "text" name = "stock1" value = "25" disabled/></td>
-                <td><input type = "checkbox" name = "item1_check"/></td>
-            </tr>
-            <tr>
-                <td>Mongol No.2 Pencils </td>
-                <td><button class = "btn dec" type = "button"> - </button> 
-                    <input type = "text" name = "item2" value = "0" /> 
-                    <button class = "btn add" type = "button"> + </button> 
-                </td>
-                <td><input type = "text" name = "stock2" value = "150"  disabled/></td>
-                <td><input type = "checkbox" name = "item2_check"/></td>
-            </tr>
-            <tr>
-                <td>Black Ballpens</td>
-                <td><button class = "btn dec" type = "button"> - </button> 
-                    <input type = "text" name = "item3" value = "0" /> 
-                    <button class = "btn add" type = "button"> + </button> 
-                </td>
-                <td><input type = "text" name = "stock3" value = "20"  disabled/></td>
-                <td><input type = "checkbox" name = "item3_check"/></td>
-            </tr>
-        </tbody>
-    </table>
+        <div style="position:absolute; left:270px; top:70px;">    
+                <label>SEARCH: </label>
+                <input type="search" placeholder="Search in the inventory" class="item_search">
+                <button id = "Addbtn"> Add </button>
+                <button id = "Rembtn"> Remove </button>
+            <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ITEMS </th>
+                        <th> </th>
+                        <th>STOCK </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody class="items_table">
+                    <tr>
+                        <td>Notebooks </td>
+                        <td><button class = "btn dec" type = "button"> - </button> 
+                            <input type = "text" name = "item1" value = "0" /> 
+                            <button class = "btn add" type = "button"> + </button> 
+                        </td>
+                        <td><input type = "text" name = "stock1" value = "25" disabled/></td>
+                        <td><input type = "checkbox" name = "item1_check"/></td>
+                    </tr>
+                    <tr>
+                        <td>Mongol No.2 Pencils </td>
+                        <td><button class = "btn dec" type = "button"> - </button> 
+                            <input type = "text" name = "item2" value = "0" /> 
+                            <button class = "btn add" type = "button"> + </button> 
+                        </td>
+                        <td><input type = "text" name = "stock2" value = "150"  disabled/></td>
+                        <td><input type = "checkbox" name = "item2_check"/></td>
+                    </tr>
+                    <tr>
+                        <td>Black Ballpens</td>
+                        <td><button class = "btn dec" type = "button"> - </button> 
+                            <input type = "text" name = "item3" value = "0" /> 
+                            <button class = "btn add" type = "button"> + </button> 
+                        </td>
+                        <td><input type = "text" name = "stock3" value = "20"  disabled/></td>
+                        <td><input type = "checkbox" name = "item3_check"/></td>
+                    </tr>
+                </tbody>
+            </table>
+                </div>
         </div>
-</div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     </div>
 </body>
 

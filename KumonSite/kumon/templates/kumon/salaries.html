@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
-
+        <style>
+                .salaries-table{
+                    width:50%;
+                    position:absolute;
+                    left:370px;
+                    top:175px;
+                }
+                .formatbtn{
+                    position:absolute;
+                    border:none;
+                    right:0px;
+                    top:-20px;
+                    background-color:#008CBA;
+                    color:white;
+                    padding: 5px 15px;
+                    transition-duration: 0.2s;
+                }
+                .formatbtn:hover{
+                    background-color:white;
+                    color:black;
+                    border:1px solid #008CBA;
+                }
+            </style>
 <head>
 
     <meta charset="utf-8">
@@ -114,7 +136,7 @@
                           <li>
                             <a href="/kumon/schedule"><i class="fa fa-calendar fa-fw"></i> Schedule</a>
                         </li>
-                         <li>
+                        <li style = "background-color:lightgray;">
                             <a href="/kumon/salaries"><i class="fa fa-database fa-fw"></i> Salary</a>
                         </li>
                           <li>
@@ -134,50 +156,31 @@
         </nav>
 
 
-<div style="position:absolute; left:270px; top:70px;">
-     <label>SEARCH </label>
-    <input type="search" placeholder="Search Name, Salary, etc..">
-    <button class="btn Remove" type="button">Remove Row</button>
-    <button class="btn Add" type="button">Add Row</button>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th rowspan="0">LIST OF TEACHERS </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr></tr>
-                <tr>
-                    <td>Teacher 1</td>
-                    <td>Teacher 4</td>
-                </tr>
-                <tr></tr>
-                <tr>
-                    <td>Teacher 2</td>
-                    <td>Teacher 5</td>
-                </tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr>
-                    <td>Teacher 3</td>
-                    <td>Teacher 6</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <nav>
-        <ul class="pagination">
-            <li><a aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-            <li><a>1</a></li>
-            <li><a>2</a></li>
-            <li><a>3</a></li>
-            <li><a aria-label="Next"><span aria-hidden="true">»</span></a></li>
-        </ul>
-    </nav>
-   
-    </div>
+        <div class = "salaries-table">
+                <table class = "table table-bordered">
+                    <thead> <strong>LIST OF TEACHERS</strong></thead>
+                    <tbody>
+                        <tr>
+                            <td><a href = "/kumon/teacher_salary"> Teacher 1 </a></td>
+                            <td><a href = "/kumon/teacher_salary"> Teacher 4</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href = "/kumon/teacher_salary">   Teacher 2 </a></td>
+                            <td><a href = "/kumon/teacher_salary">  Teacher 5 </a></td>
+                        </tr>
+                        <tr>
+                            <td><a href = "/kumon/teacher_salary">  Teacher 3 </a></td>
+                            <td><a href = "/kumon/teacher_salary">  Teacher 6 </a></td>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </tbody>
+                
+                </table>
+                <button class = "formatbtn"><a href =  "/kumon/salaries_format"> Salary Format </a> 
+         
+                </button>
+            </div>
     </div>
 </body>
 

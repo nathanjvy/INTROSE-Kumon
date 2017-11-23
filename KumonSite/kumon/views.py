@@ -97,3 +97,15 @@ def inventoryPage(request):
     }
 
     return render(request, 'kumon/inventory.html',context)
+
+def salaryFormatPage(request):
+    context = {
+
+    }
+
+    return render(request, 'kumon/salaries_format.html',context)
+
+def teacherSalaryPage(request):
+    context = {}
+
+    return render(request,'kumon/teacher_salary.html',context)

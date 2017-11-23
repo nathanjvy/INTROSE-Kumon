@@ -114,7 +114,7 @@
                           <li>
                             <a href="/kumon/schedule"><i class="fa fa-calendar fa-fw"></i> Schedule</a>
                         </li>
-                         <li>
+                        <li style = "background-color:lightgray;">
                             <a href="/kumon/salaries"><i class="fa fa-database fa-fw"></i> Salary</a>
                         </li>
                           <li>
@@ -133,63 +133,63 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-    <div style="position:absolute; left:270px; top:70px;">
-    <div class="table-responsive">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th class="info"><strong>Salary:</strong> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="success" rowspan="3">Bonuses: </td>
-                <td>Allowance: <input type = "text" name = "allowance_amount" value = "0" /> </td>
-                <td><input type="checkbox" name="allowance_check" /> Paid</td>
-            </tr>
-            <tr>
-                <td><em>Key-holder</em> Pay: <input type = "text" name = "keypay_amount" value = "0" /></td>
-                <td><input type="checkbox" name="key_check" /> Paid</td>
-            </tr>
-            <tr>
-                <td><em>No-late</em> Pay: <input type = "text" name = "nolate_amount" value = "0" /></td>
-                <td><input type="checkbox" name="late_check" /> Paid</td>
-            </tr>
-            <tr>
-                <td class="danger" rowspan="5">Deductions: </td>
-                <td>Absences: <input type = "text" name = "absence_amount" value = "0" /></td>
-                <td><input type="checkbox" name="late_check" /> Deduct</td>
-            </tr>
-            <tr>
-                <td>Undertime: <input type = "text" name = "undertime_amount" value = "0" /></td>
-                <td><input type="checkbox" name="late_check" /> Deduct</td>
-            </tr>
-            <tr>
-                <td>SSS Deduction: <input type = "text" name = "SSS_amount" value = "100" /></td>
-                <td><input type="checkbox" name="late_check" /> Deduct</td>
-            </tr>
-            <tr>
-                <td>PhilHealth Deduction: <input type = "text" name = "PH_amount" value = "100" /></td>
-                <td><input type="checkbox" name="late_check" /> Deduct</td>
-            </tr>
-            <tr>
-                <td>Pag-Ibig Deduction: <input type = "text" name = "PI_amount" value = "100" /></td>
-                <td><input type="checkbox" name="late_check" /> Deduct</td>
-            </tr>
+        <div style="position:absolute; left:270px; top:70px;">
+                <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="info"><strong>Salary:</strong> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="success" rowspan="3">Bonuses: </td>
+                            <td>Allowance: <input type = "text" name = "allowance_amount" value = "0" /> </td>
+                            <td><input type="checkbox" name="allowance_check" /> </td>
+                        </tr>
+                        <tr>
+                            <td><em>Key-holder</em> Pay: <input type = "text" name = "keypay_amount" value = "0" /></td>
+                            <td><input type="checkbox" name="key_check" /> </td>
+                        </tr>
+                        <tr>
+                            <td><em>No-late</em> Pay: <input type = "text" name = "nolate_amount" value = "0" /></td>
+                            <td><input type="checkbox" name="late_check" /> </td>
+                        </tr>
+                        <tr>
+                            <td class="danger" rowspan="5">Deductions: </td>
+                            <td>Absences: <input type = "text" name = "absence_amount" value = "0" /></td>
+                            <td><input type="checkbox" name="late_check" /> </td>
+                        </tr>
+                        <tr>
+                            <td>Undertime: <input type = "text" name = "undertime_amount" value = "0" /></td>
+                            <td><input type="checkbox" name="late_check" /> </td>
+                        </tr>
+                        <tr>
+                            <td>SSS Deduction: <input type = "text" name = "SSS_amount" value = "100" /></td>
+                            <td><input type="checkbox" name="late_check" /> </td>
+                        </tr>
+                        <tr>
+                            <td>PhilHealth Deduction: <input type = "text" name = "PH_amount" value = "100" /></td>
+                            <td><input type="checkbox" name="late_check" /> </td>
+                        </tr>
+                        <tr>
+                            <td>Pag-Ibig Deduction: <input type = "text" name = "PI_amount" value = "100" /></td>
+                            <td><input type="checkbox" name="late_check" /> </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class = "warning"> TOTAL SALARY: <input type = "text" name = "TOTAL_amount" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                <label>DATE: </label>
+                <input type="text" name="salary_amount" class="salary_amount">
+                <script src="assets/js/jquery.min.js"></script>
+                <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+                    </div>
+                </div>
+                    </body>
+                    
             
-            <tr>
-                <td class = "warning"> TOTAL SALARY: <input type = "text" name = "TOTAL_amount" /></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-    <label>DATE: </label>
-    <input type="text" name="salary_amount" value="4050" class="salary_amount">
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        </div>
-    </div>
-        </body>
-        
-
-</html>
+            </html>

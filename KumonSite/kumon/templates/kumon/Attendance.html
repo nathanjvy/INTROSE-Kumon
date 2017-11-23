@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+
 <html lang="en">
+
+        <style>
+                #sortdate{
+                    position: absolute;
+                    left:276px;
+                    top:55px;
+                }
+                #dropd{
+                    position:absolute;
+                    left:600px;
+                    top:55px;
+                }
+                #sbtn{
+                    background-color:#008CBA;
+                    border: none;
+                    color: white;
+                    padding: 5px 15px;
+                    transition-duration: 0.2s;
+                    position:absolute;
+                    right:250px;
+                    top:310px;
+                }
+                    #sbtn:hover{
+                        background-color:white;
+                        color:black;
+                        border:2px solid #008CBA;
+                    }
+                .expenses-table{
+                    position: absolute;
+                    width:50%;
+                    margin-top:4%;
+                    left:430px;
+                }
+            </style>
+            
 
 <head>
 
@@ -28,61 +64,61 @@
 
     <div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/kumon/home"><font color="white">KUMON Poblacion (Guagua) Center</font></a>
-            </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw" style="color:#16242B"></i> <i class="fa fa-caret-down" style="color: #16242B"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><font color="white">KUMON Poblacion (Guagua) Center</font></a>
+                    </div>
+                    <!-- /.navbar-header -->
+        
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell fa-fw" style="color:#16242B"></i> <i class="fa fa-caret-down" style="color: #16242B"></i>
                             </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
+                            <ul class="dropdown-menu dropdown-alerts">
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <i class="fa fa-tasks fa-fw"></i> New Task
+                                            <span class="pull-right text-muted small">4 minutes ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a class="text-center" href="#">
+                                        <strong>See All Alerts</strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user fa-fw" style="color: #16242B"></i> <i class="fa fa-caret-down" style="color: #16242B"></i>
                             </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-user fa-fw"></i> User Profile</a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                </li>
+                            </ul>
+                            <!-- /.dropdown-user -->
                         </li>
+                        <!-- /.dropdown -->
                     </ul>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw" style="color: #16242B"></i> <i class="fa fa-caret-down" style="color: #16242B"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
+                    <!-- /.navbar-top-links -->
+        
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -108,7 +144,7 @@
                         <li>
                             <a href="/kumon/teachers"><i class="fa fa-group fa-fw"></i> Teachers</a>
                         </li>
-                        <li>
+                        <li style = "background-color:lightgray;">
                             <a href="/kumon/attendance"><i class="fa fa-check-square fa-fw"></i> Attendance</a>
                         </li>
                           <li>
@@ -133,60 +169,54 @@
             <!-- /.navbar-static-side -->
         </nav>
 	
-			<div class="container" style="position:absolute; left:600px; top:100px;">
-			<label class="Dropd"></label>
-			<select>
-				<option>Dropdown</option>
-			</select>
-		</div>
 			
     <div id = selection>
         
     </div>
-    <div id = list>
-				
-	
-		<div style="margin-left: 270px; margin-top: 50px">
-			
-		
-			<form>
-			  Sort by date
-			  <input type="date" name="date">
-			</form>
-			
-			<ul class="expensestable">
-			<table style="width:100% ; margin-top: 4%">
+    <div class = "expenses-table"> 
+			<table class="table table-bordered">
 			  <tr>
 				<th>Student Name</th>
 				<th>Present </th> 
 				<th>Absent</th>
 			  </tr>
 			  <tr>
-				<td>A</td>
-				<td><input type="checkbox" name="cb"</td>
-				<td><input type="checkbox" name="cb"</td>
+				<td>Nathan Vy</td>
+				<td><input type="checkbox" name="cb"></td>
+				<td><input type="checkbox" name="cb"></td>
 				
 			  </tr>
 			  <tr>
-				<td>B</td>
+				<td>Jose Luis Dino</td>
 				<td><input type="checkbox" name="cb"</td>
 				<td><input type="checkbox" name="cb"</td>
 			  </tr>
 			  <tr>
-				<td>C</td>
+				<td>Student C</td>
 				<td><input type="checkbox" name="cb"</td>
 				<td><input type="checkbox" name="cb"</td>
 			  </tr>
 			  <tr>
-				<td>D</td>
+				<td>Student D</td>
 				<td><input type="checkbox" name="cb"</td>
 				<td><input type="checkbox" name="cb"</td>
 			  </tr>
 			  
 			</table>
-
-			</ul>
-        </table>
+        </div>
+	
+	
+		<div id = "sortdate">
+			<form>
+			  Sort by Date:
+			  <input type="date" name="date">
+			</form>
+        </div>
+        
+        <button id = "sbtn">Save</button>
+        
+        
+    </div>
     </div>
 </body>
 
