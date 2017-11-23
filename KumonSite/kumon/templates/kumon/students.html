@@ -163,20 +163,22 @@
                 <th id = "t11">profile</th>
             </tr>
             <tr>
-                <td><a href="student-profile.html">Nathan Joshua B. Vy</a></td>
-                <td>Nathan</td>
-                <td>September 11, 1998</td>
-                <td>19</td>
+                {% for student in all_students %}
+                <td><a href="/kumon/studprofile/{{ student.id}}">{{student.name}}</a></td>
+                <td>{{student.nickname}}</td>
+                <td>{{student.birthday}}</td>
+                <td>{{student.age}}</td>
                 <td>S</td>
-                <td>DLSU</td>
-                <td>3rd</td>
+                <td>{{student.school}}</td>
+                <td>{{student.school_level}}</td>
                 <td>X</td>
                 <td>Gold</td>
                 <td>5</td>
                 
             </tr>
-            <tr>
-                <td><a href="student-profile.html">Jose Luis Dino</a></td>
+            {% endfor %}
+           <!-- <tr> 
+                <td><a href="/kumon/studprofile/{{ user.id}}">Jose Luis Dino</a></td>
                 <td>Luigi</td>
                 <td>January 19, 1998</td>
                 <td>19</td>
@@ -186,7 +188,7 @@
                 <td>X</td>
                 <td>Gold</td>
                 <td>8</td>
-            </tr>        
+            </tr>      -->  
         </table>
     </div>
         </div>
