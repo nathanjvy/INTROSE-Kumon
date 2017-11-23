@@ -2,10 +2,35 @@
 {% load staticfiles %}
 <html lang="en">
         <style>
-                #expenses-table th:hover, tr:hover{
-                    background-color: powderblue;
-                    color:white;
-                    border:none;
+                #Addbtn{
+                        background-color:#008CBA;
+                        border: none;
+                        color: white;
+                        padding: 5px 25px;
+                        transition-duration: 0.2s;
+                        position: absolute;
+                        right:110px;
+                        top:-5px;        
+                }
+                #Addbtn:hover{
+                        background-color:white;
+                        color:black;
+                        border:2px solid #008CBA;
+                }
+                #Rembtn{
+                        background-color:#008CBA;
+                        border: none;
+                        color: white;
+                        padding: 5px 25px;
+                        transition-duration: 0.2s;
+                        position: absolute;
+                        right:0px;
+                        top:-5px;
+                }
+                #Rembtn:hover{
+                        background-color:white;
+                        color:black;
+                        border:2px solid #008CBA;
                 }
             </style>
 <head>
@@ -138,50 +163,72 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <div id = "page-wrapper" style = "margin-top: 3%" >
-                <label class="Dropd">Sort by: </label>
-                    <select>
-                        <option>Month</option>
-                </select>
-                
-                <label class="Dropd"></label>
-                 <select>
-                     <option>Year</option>
-                 </select>
-                
-                <table class = "table table-bordered" id = "expenses-table" style = "width:50%; position:absolute; left:250px; margin-top: 1%;">		
-                    <tbody>
-    
-                  <tr>
-                    <th>Expenses</th>
-                    <th>Cost</th> 
-                    <th>Date Paid</th>
-                  </tr>
-                  <tr>
-                    <td>Electricity</td>
-                    <td>6000</td>
-                    <td>11/11/11</td>
-                    
-                  </tr>
-                  <tr>
-                    <td>Phone</td>
-                    <td>600</td>
-                    <td>12/13/14</td>
-                  </tr>
-                  <tr>
-                    <td>Water</td>
-                    <td>2000</td>
-                    <td>11/11/11</td>
-                    
-                  </tr>
-                  <tr>
-                    <td>Supplies</td>
-                    <td>3000</td>
-                    <td>12/13/14</td>
-                  </tr>
-                  </tbody>
+        <div style="position:absolute; left:270px; top:70px;">    
+            <label class="Dropd">Date: </label>
+            <select>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+            </select>
+            <label class="Dropd"></label>
+            <select>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+                <option>2027</option>
+                <option>2028</option>
+                <option>2029</option>
+                <option>2030</option>
+                <option>2031</option>
+                <option>2032</option>
+                <option>2033</option>
+                <option>2034</option>
+                <option>2035</option>
+                <option>2036</option>
+                <option>2037</option>
+                <option>2038</option>
+                <option>2039</option>
+                <option>2040</option>
+            </select>
+            <button id = "Addbtn"> Add </button>
+            <button id = "Rembtn"> Remove </button>
+            <div class="table-responsive">
+                <table class="table table-bordered" style="width:500px;">
+                    <thead>
+                        <tr>
+                            <th>EXPENSES</th>
+                            <th>COST</th>
+                            <th>DATE PAID</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody class="items_table">
+                        <tr>
+                            <td>Notebooks</td>
+                            <td>2500</td>
+                            <td>11/19/2017</td>
+                            <td><input type = "checkbox" name = "item1_check"/></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
+        </div>
     </div>
 </body>
 
