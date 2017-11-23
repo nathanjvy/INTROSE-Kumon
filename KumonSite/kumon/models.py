@@ -10,6 +10,43 @@ class User(models.Model):
 	def __str__(self):
 		return self.username
 
+class Teacher(models.Model):
+	name = models.CharField(max_length=50)
+	phone_num = models.CharField(max_length=15)
+	tel_num = models.CharField(max_length=15)
+	email = models.EmailField(max_length=50)
+	t_picture = models.ImageField(blank=True)
+	
+	def __str__(self):
+		return self.name
+
+
+class Schedule(models.Model):
+
+	days_week = (
+		('Monday','Monday'),
+		('Tuesday','Tuesday'),
+		('Wednesday','Wednesday'),
+		('Thursday','Thursday'),
+		('Friday','Friday'),
+		('Saturday','Saturday')
+	)
+	
+	teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+	#student = models.ForeignKey(Student, on_delete=models.CASCADE)
+
+	time_start = models.TimeField()
+	time_end = models.TimeField()
+
+	day = models.CharField(
+		max_length=10,
+		choices = days_week,
+		default = 'Monday'
+	)
+	
+	def __str__(self):
+		return self.teacher
+
 class Student(models.Model):
     	
 	gender_choices = (
@@ -47,7 +84,8 @@ class Student(models.Model):
 	guardian_email = models.EmailField(max_length=50,blank=True)
 
         #teacher/s will be found in schedule
-	schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
+
+	sched = models.ForeignKey(Schedule, on_delete=models.CASCADE)
 
 	#Payment Status
 	tuition_fee = models.CharField(max_length=50)
@@ -65,41 +103,6 @@ class Student(models.Model):
 	def __str__(self):
 		return self.name
 
-class Teacher(models.Model):
-	name = models.CharField(max_length=50)
-	phone_num = models.CharField(max_length=15)
-	tel_num = models.CharField(max_length=15)
-	email = models.EmailField(max_length=50)
-	t_picture = models.ImageField(blank=True)
-	
-	def __str__(self):
-		return self.name
-
-class Schedule(models.Model):
-
-	days_week = (
-		('Monday','Monday'),
-		('Tuesday','Tuesday'),
-		('Wednesday','Wednesday'),
-		('Thursday','Thursday'),
-		('Friday','Friday'),
-		('Saturday','Saturday')
-	)
-	
-	teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-	#student = models.ForeignKey(Student, on_delete=models.CASCADE)
-
-	time_start = models.TimeField()
-	time_end = models.TimeField()
-
-	day = models.CharField(
-		max_length=10,
-		choices = days_week,
-		default = 'Monday'
-	)
-	
-	def __str__(self):
-		return self.teacher
 class Grades(models.Model):
 
         subject_choice = (
@@ -122,3 +125,7 @@ class Grades(models.Model):
         #ave_grade = 0
         #ave_grade = models.IntegerField((curr_grade + ave_grade) / 2)
 
+class Inventory(models.Model):
+
+	item_name = models.CharField(max_length=50)
+	item_quantity = models.IntegerField()
