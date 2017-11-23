@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -36,8 +37,9 @@ class Student(models.Model):
 
 	#Other Info
 	school = models.CharField(max_length=50)
-	level = models.CharField(max_length=50)
-	
+	school_level = models.CharField(max_length=50)
+	kumon_level = models.CharField(max_length=50)
+
 	#Guardian Info 
 	guardian_name = models.CharField(max_length=50)
 	relation = models.CharField(max_length=50)
@@ -81,4 +83,25 @@ class Schedule(models.Model):
 	
 	def __str__(self):
 		return self.teacher
+class Grades(models.Model):
+
+        subject_choice = (
+                ('Science', 'Sci'),
+                ('Math', 'Math'),
+                ('English', 'Eng')
+        )
+        subject = models.CharField(choices=subject_choice, max_length=10)
+
+        #grade for this term/sem/whatever they call it sa kumon
+        curr_grade = models.IntegerField(
+                default=0,
+                validators=[
+                        MaxValueValidator(100),
+                        MinValueValidator(0)
+                ]
+        )
+
+        #average grade, cgpa for the subj kumaga
+        #ave_grade = 0
+        #ave_grade = models.IntegerField((curr_grade + ave_grade) / 2)
 

@@ -1,10 +1,17 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
+from django.shortcuts import render
+from django.http import Http404
+from django.views.generic import TemplateView
+from django.shortcuts import redirect,reverse
+from django.urls import reverse
 
 # Create your views here.
 
 from kumon.forms import LoginForm,StudentForm
 
-from .models import User,Student
+from .models import User, Student
 
 def login(request):
     form = LoginForm(request.POST)
@@ -40,8 +47,17 @@ def studentPage(request):
     }
     return render(request,'kumon/students.html',context)
 
-def studentProfile(request):
+def studentProfile(request, student_id):
+    all_students = Student.objects.all()
+
+    try:
+        student = Student.objects.get(pk=student_id)
+    except (KeyError, Student.DoesNotExist):
+        raise Http404("User does not exist")
+
+
     context = {
+        'all_students':all_students,
     }
     return render(request,'kumon/student-profile.html',context)
 
